@@ -1,0 +1,158 @@
+*{
+    margin:0;padding: 0; font-family: consolas;
+}
+body{
+    background:#000;
+}
+
+.container 
+{
+    min-height: 100vh; width: 100%;
+    display: flex; flex-direction: column; 
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.container  h1{
+    color: #fff;
+    font-size: 3em;
+    background:#111;
+    padding: 10px 20px;
+    clip-path: polygon(83% 0, 42% 9%, 100% 5%, 100% 94%, 91% 86%, 78% 100%, 24% 100%, 59% 90%, 0 98%, 0 4%);
+
+}
+.container .CircularProgress 
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,250px));
+    grid-auto-rows: 250px;
+    grid-gap: 5px;
+    justify-content: center;
+  
+}
+.container .CircularProgress .circ_progress
+{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    
+}
+.container .CircularProgress .circ_progress h3
+{
+transform: translateY(-30px);
+text-transform: uppercase;
+color: #fff;
+font-weight:none ;
+}
+.container .CircularProgress .circ_progress h2
+{
+    position: absolute;
+    top: 50%; left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.3em;
+    font-weight:none ;
+    color: #fff;
+  
+}
+
+
+.container .barProgress
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container .barProgress .bar
+{
+    width: 60%;
+    display: flex;
+    margin-top:35px;
+    align-items: center;
+    
+
+}
+
+.container .barProgress .bar .percentage--indicator{
+    margin:0 10px;
+    height: 50px;
+    width: 50px;
+    display: block;
+    position: relative;
+    background: #fff;
+    border-radius: 50%;
+}
+.container .barProgress .bar .percentage--indicator::after
+{
+    content: attr(dataset);
+    position: absolute;
+    top:calc(50% - 20px); left:calc(50% - 20px); height: 40px;
+    width: 40px;
+    line-height:40px;
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    background: #111;
+    border-radius: 50%;
+    color: var(--back);
+}
+
+.container .barProgress .bar .progressbar
+{
+    height: 10px;
+    width: 100%;
+    background: #222;
+    display: flex;
+    position: relative;
+}
+.container .barProgress .bar .progressbar .label
+{
+    font-size: 0.8em;
+    color: #111;
+    background: #fff;
+    position: absolute;
+    top:-27px;
+    left:0;
+    border-radius: 5px;
+    padding: 2px 3px;
+    transform: translateX(-5px);
+}
+.container .barProgress .bar .progressbar .label::after
+{
+    content:'';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    display: block;
+    clip-path: polygon(0 0,100% 0,0 100%,0 0);
+    transform: translateX(5px);
+}
+
+@media screen and (max-width:900px)
+{
+    .container .barProgress .bar
+    {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:700px)
+{
+    .container .barProgress .bar
+    {
+        width: 100%;
+    }
+    .container .barProgress .bar .progressbar
+    {
+        width: 90%;
+    }
+}
